@@ -9,6 +9,7 @@ powershell Compress-Archive -Path sqlplus.exe -DestinationPath sqlplus-windows.z
 cd ..
 
 echo.
-echo Done! Upload dist/sqlplus-windows.zip to GitHub Releases
+echo Done! The file is ready at: dist\sqlplus-windows.zip
+echo Upload this file to GitHub Releases
 echo.
 pause
