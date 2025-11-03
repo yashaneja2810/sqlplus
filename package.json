@@ -1,0 +1,26 @@
+{
+  "name": "sqlplus-ai",
+  "version": "1.0.0",
+  "description": "SQL+ AI Chat Tool with Gemini - Command Line Edition",
+  "main": "sqlplus.js",
+  "bin": {
+    "sqlplus": "./sqlplus.js"
+  },
+  "scripts": {
+    "start": "node sqlplus.js",
+    "build": "pkg . --targets node18-win-x64 --output dist/sqlplus.exe"
+  },
+  "keywords": ["ai", "chat", "gemini", "sql", "cli"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0"
+  },
+  "devDependencies": {
+    "pkg": "^5.8.1"
+  },
+  "pkg": {
+    "assets": [],
+    "targets": ["node18-win-x64"]
+  }
+}
