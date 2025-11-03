@@ -88,31 +88,52 @@ Replace `YOUR_USERNAME` with your actual GitHub username, then run the commands.
 2. Click **"Releases"** (right sidebar)
 3. Click **"Create a new release"**
 
-### Step 2: Create Release
+### Step 2: Create ZIP File (IMPORTANT!)
+
+**GitHub doesn't allow .exe files directly, so we need to ZIP it first!**
+
+**Option A: Use the batch script (Easiest)**
+1. Double-click `build-and-zip.bat` in your project folder
+2. It will build and create `dist/sqlplus-windows.zip` automatically
+3. Done! Skip to Step 3.
+
+**Option B: Manual ZIP**
+1. Go to your `dist` folder
+2. Right-click on `sqlplus.exe`
+3. Choose **"Send to"** → **"Compressed (zipped) folder"**
+4. Rename it to `sqlplus-windows.zip`
+
+### Step 3: Create Release
 1. **Tag version**: Type `v1.0.0` and press Enter
 2. **Release title**: Type `SQL+ v1.0.0`
 3. **Description**: Type something like:
    ```
    First release of SQL+ AI Command Processor
    
-   Download sqlplus.exe and run it in Command Prompt to start chatting with AI!
+   Download sqlplus-windows.zip, extract it, and run sqlplus.exe in Command Prompt to start chatting with AI!
+   
+   Instructions:
+   1. Download sqlplus-windows.zip
+   2. Right-click → Extract All
+   3. Open Command Prompt in the extracted folder
+   4. Run: sqlplus.exe
    ```
 4. **Attach files**: 
    - Click "Attach binaries by dropping them here or selecting them"
-   - Select `dist/sqlplus.exe` from your computer
-   - Wait for upload to complete
+   - Select `sqlplus-windows.zip` from your `dist` folder
+   - Wait for upload to complete (should be ~2-5 MB)
 5. Click **"Publish release"**
 
-### Step 3: Get Download URL
+### Step 4: Get Download URL
 1. After publishing, you'll see your release
-2. Right-click on `sqlplus.exe` → **"Copy link address"**
+2. Right-click on `sqlplus-windows.zip` → **"Copy link address"**
 3. The URL will look like:
    ```
-   https://github.com/YOUR_USERNAME/sqlplus/releases/download/v1.0.0/sqlplus.exe
+   https://github.com/YOUR_USERNAME/sqlplus/releases/download/v1.0.0/sqlplus-windows.zip
    ```
 4. Save this URL - you'll need it next!
 
-### Step 4: Update Website Download Link
+### Step 5: Update Website Download Link
 1. Open `website/index.html` in your editor
 2. Find line ~133 (search for `href="https://github.com/YOUR_USERNAME`)
 3. Replace the entire URL with your copied URL
@@ -184,15 +205,17 @@ Your site is already live at `https://your-project.vercel.app`
 
 ### Test 2: Download Works
 1. Click the **"Download"** button
-2. The `sqlplus.exe` should download
-3. Check the file size (should be ~5-10 MB)
+2. The `sqlplus-windows.zip` should download
+3. Check the file size (should be ~2-5 MB compressed)
 
 ### Test 3: Executable Works
-1. Open Command Prompt
-2. Navigate to download folder: `cd Downloads`
-3. Run: `sqlplus.exe`
-4. Type a message and press Enter
-5. AI should respond!
+1. Go to Downloads folder
+2. Right-click `sqlplus-windows.zip` → **"Extract All"**
+3. Open the extracted folder
+4. Open Command Prompt in that folder (Shift + Right-click → "Open PowerShell window here")
+5. Run: `.\sqlplus.exe`
+6. Type a message and press Enter
+7. AI should respond!
 
 ---
 
@@ -285,7 +308,7 @@ After deployment, save these:
 
 - **GitHub Repo**: `https://github.com/YOUR_USERNAME/sqlplus`
 - **Vercel Site**: `https://your-project.vercel.app`
-- **Download URL**: `https://github.com/YOUR_USERNAME/sqlplus/releases/download/v1.0.0/sqlplus.exe`
+- **Download URL**: `https://github.com/YOUR_USERNAME/sqlplus/releases/download/v1.0.0/sqlplus-windows.zip`
 
 ---
 
